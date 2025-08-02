@@ -12,6 +12,8 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    use std::clone;
+
     use super::*;
 
     // TODO: `vec0`と`vec1`ベクタに同じタイミングでアクセスできるように
@@ -19,8 +21,9 @@ mod tests {
     #[test]
     fn move_semantics2() {
         let vec0 = vec![22, 44, 66];
+        let vec0_clone = vec0.clone();
 
-        let vec1 = fill_vec(vec0);
+        let vec1 = fill_vec(vec0_clone);
 
         assert_eq!(vec0, [22, 44, 66]);
         assert_eq!(vec1, [22, 44, 66, 88]);

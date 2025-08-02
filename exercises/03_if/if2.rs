@@ -2,8 +2,10 @@
 fn foo_if_fizz(fizzish: &str) -> &str {
     if fizzish == "fizz" {
         "foo"
+    } else if fizzish == "literally anything" {
+        "baz"
     } else {
-        1
+        "bar"
     }
 }
 
