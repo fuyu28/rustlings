@@ -22,10 +22,23 @@ enum Command {
 }
 
 mod my_module {
+    use std::io::repeat;
+
     use super::Command;
 
     // TODO: 関数を以下に完成させてください。
-    // pub fn transformer(input: ???) -> ??? { ??? }
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
+        let mut output = Vec::new();
+        for (s, command) in input {
+            let s_new = match command {
+                Command::Uppercase => s.to_uppercase(),
+                Command::Trim => s.trim().to_string(),
+                Command::Append(n) => s + &"bar".repeat(n),
+            };
+            output.push(s_new);
+        }
+        output
+    }
 }
 
 fn main() {
@@ -35,7 +48,7 @@ fn main() {
 #[cfg(test)]
 mod tests {
     // TODO: `transformer`をスコープに入れるために何をすればいいですか？
-    // use ???;
+    use super::my_module::transformer;
     use super::Command;
 
     #[test]

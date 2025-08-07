@@ -2,17 +2,18 @@
 // キー名をフルーツの名前、バリューはカゴの中のフルーツの数を表します。
 // 今回の場合は少なくとも3種類のフルーツを格納し、カゴの中の果物の数は5個以上にしてください。
 
-use std::collections::HashMap;
+use std::{collections::HashMap, hash::Hash};
 
 fn fruit_basket() -> HashMap<String, u32> {
     // TODO: ハッシュマップを定義してください。
-    // let mut basket =
+    let mut basket = HashMap::new();
 
     // 2つのバナナが既にハッシュマップに追加されています。 :)
     basket.insert(String::from("banana"), 2);
 
     // TODO: さらに果物を追加してください。
-
+    basket.insert(String::from("strawberry"), 3);
+    basket.insert(String::from("apple"), 4);
     basket
 }
 
