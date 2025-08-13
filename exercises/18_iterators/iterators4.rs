@@ -4,12 +4,14 @@ fn factorial(num: u64) -> u64 {
     // https://ja.wikipedia.org/wiki/%E9%9A%8E%E4%B9%97
     //
     // 以下の方法は禁止です:
-    // - 早期にreturnを使う (明示的にreturnを使う) 
+    // - 早期にreturnを使う (明示的にreturnを使う)
     // 以下の方法はできるだけ使わないでください:
     // - ループ (for/while)
     // - 変数を追加する
     // 挑戦問題、できれば以下を使わないでください:
     // - 再起
+    (1..=num).fold(1, |acc, x| acc * x)
+    // (1..=num).product::<u64>()
 }
 
 fn main() {
